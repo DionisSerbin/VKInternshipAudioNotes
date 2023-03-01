@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".presentation.view.record.RecordFragment">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large_size"
+        android:text="00:00.0"
+        android:textSize="@dimen/text_large_size"
+        app:layout_constraintBottom_toTopOf="@+id/playerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.example.vkinternshipaudionotes.presentation.customView.RecorderWaveformView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/record_wave_size"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large_size"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="@dimen/material_button_height_size"
+            android:layout_height="@dimen/material_button_height_size"
+            android:background="@drawable/ic_circle_selectable"
+            android:clickable="false"
+            android:src="@drawable/ic_delete_disabled" />
+
+        <ImageButton
+            android:id="@+id/record_Btn"
+            android:layout_width="@dimen/material_button_height_size"
+            android:layout_height="@dimen/material_button_height_size"
+            android:layout_marginStart="@dimen/margin_large_size"
+            android:layout_marginEnd="@dimen/margin_large_size"
+            android:background="@drawable/ic_record" />
+
+
+        <ImageButton
+            android:id="@+id/doneBtn"
+            android:layout_width="@dimen/material_button_height_size"
+            android:layout_height="@dimen/material_button_height_size"
+            android:background="@drawable/ic_circle_selectable"
+            android:src="@drawable/ic_done"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
