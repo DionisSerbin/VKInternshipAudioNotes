@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_large_size"
+        android:text="@string/save_record"
+        android:textSize="@dimen/text_large_size" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_medium_size"
+        app:boxBackgroundColor="@color/colorGray"
+        app:boxCornerRadiusBottomEnd="@dimen/corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/corner_radius"
+        app:boxStrokeColor="@color/colorBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/filenameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium_size"
+            android:padding="@dimen/padding_card" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large_size"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="@dimen/material_button_width_size"
+            android:layout_height="@dimen/material_button_height_size"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/colorGray"
+            android:text="@string/cancel"
+            android:textColor="@color/colorGrayDark"
+            app:cornerRadius="@dimen/corner_radius"
+            app:rippleColor="@color/colorGrayDark" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/okBtn"
+            android:layout_width="@dimen/material_button_width_size"
+            android:layout_height="@dimen/material_button_height_size"
+            android:backgroundTint="@color/colorBox"
+            android:text="@string/ok"
+            android:textColor="@android:color/white"
+            app:cornerRadius="@dimen/corner_radius"
+            app:rippleColor="@color/colorGrayDark" />
+    </LinearLayout>
+</LinearLayout>

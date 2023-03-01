@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">VKInternshipAudioNotes</string>
+    <string name="your_records">Ваши записи</string>
+    <string name="speed_start">x 1.0</string>
+    <string name="save_record">Сохранить запись?</string>
+    <string name="cancel">Отменить</string>
+    <string name="ok">Ок</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
