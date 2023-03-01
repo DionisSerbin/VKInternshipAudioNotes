@@ -5,26 +5,26 @@ import java.util.Timer
 
 class Timer(private var listener: OnTimerUpdateListener) {
 
-    interface OnTimerUpdateListener{
+    interface OnTimerUpdateListener {
         fun onTimerUpdate(duration: String)
     }
 
-    private var duration : Long = 0
-    private var period : Long = 258
-    private lateinit var timer : Timer
+    private var duration: Long = 0
+    private var period: Long = 258
+    private lateinit var timer: Timer
 
-    fun start(){
+    fun start() {
         timer = Timer()
-        timer.scheduleAtFixedRate(object : TimerTask(){
+        timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 duration += period
                 listener.onTimerUpdate(format())
             }
-        },period, period)
+        }, period, period)
     }
 
 
-    fun pause(){
+    fun pause() {
         timer.cancel()
     }
 

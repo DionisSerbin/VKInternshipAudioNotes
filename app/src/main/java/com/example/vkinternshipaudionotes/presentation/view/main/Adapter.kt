@@ -1,4 +1,4 @@
-package com.example.vkinternshipaudionotes.presentation.view
+package com.example.vkinternshipaudionotes.presentation.view.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +10,10 @@ import com.example.vkinternshipaudionotes.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Adapter(private var audioRecords: List<AudioRecord>,
-              private val listener: OnItemClickListener) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(
+    private var audioRecords: List<AudioRecord>,
+    private val listener: OnItemClickListener
+) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     private var editMode = false
 
@@ -20,23 +22,25 @@ class Adapter(private var audioRecords: List<AudioRecord>,
         fun onItemLongClick(position: Int)
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
-        var filename : TextView = itemView.findViewById(R.id.file_name)
-        var fileMeta : TextView = itemView.findViewById(R.id.file_meta)
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener, View.OnLongClickListener {
+        var filename: TextView = itemView.findViewById(R.id.file_name)
+        var fileMeta: TextView = itemView.findViewById(R.id.file_meta)
 
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
         }
+
         override fun onClick(p0: View?) {
             val position = adapterPosition
-            if(position != RecyclerView.NO_POSITION)
+            if (position != RecyclerView.NO_POSITION)
                 listener.onItemClick(position)
         }
 
         override fun onLongClick(p0: View?): Boolean {
             val position = adapterPosition
-            if(position != RecyclerView.NO_POSITION)
+            if (position != RecyclerView.NO_POSITION)
                 listener.onItemLongClick(position)
             return true
         }
@@ -52,28 +56,28 @@ class Adapter(private var audioRecords: List<AudioRecord>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if(position != RecyclerView.NO_POSITION){
+        if (position != RecyclerView.NO_POSITION) {
             val audioRecord = audioRecords[position]
             holder.filename.text = audioRecord.filename
             val sdf = SimpleDateFormat(DATE_FORMAT)
             val netDate = Date(audioRecord.date)
-            val date =sdf.format(netDate)
+            val date = sdf.format(netDate)
 
             holder.fileMeta.text = "${audioRecord.duration}  $date"
         }
     }
 
-    fun setData(audioRecords: List<AudioRecord>){
+    fun setData(audioRecords: List<AudioRecord>) {
         this.audioRecords = audioRecords
         notifyDataSetChanged()
     }
 
-    fun setEditMode(mode: Boolean){
+    fun setEditMode(mode: Boolean) {
         editMode = mode
         notifyDataSetChanged()
     }
 
-    fun isEditMode():Boolean{
+    fun isEditMode(): Boolean {
         return editMode
     }
 

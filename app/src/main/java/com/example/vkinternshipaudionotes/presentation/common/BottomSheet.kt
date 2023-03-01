@@ -36,7 +36,7 @@ class BottomSheet(
 
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
-        filename = filename.split(".mp3")[0]
+        filename = filename.split(MP3_STR)[0]
         editText.setText(filename)
 
         showKeyboard(editText)
@@ -46,13 +46,13 @@ class BottomSheet(
 
             val updatedFilename = editText.text.toString()
             if(updatedFilename != filename){
-                val newFile = File("$dirPath$updatedFilename.mp3")
+                val newFile = File("$dirPath$updatedFilename$MP3_STR")
                 File(dirPath+filename).renameTo(newFile)
             }
 
             dismiss()
 
-            listener.onOkClicked("$dirPath$updatedFilename.mp3", updatedFilename)
+            listener.onOkClicked("$dirPath$updatedFilename$MP3_STR", updatedFilename)
         }
 
         view.findViewById<Button>(R.id.cancelBtn).setOnClickListener {
@@ -80,4 +80,7 @@ class BottomSheet(
         imm?.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
+    companion object {
+        private const val MP3_STR = ".mp3"
+    }
 }

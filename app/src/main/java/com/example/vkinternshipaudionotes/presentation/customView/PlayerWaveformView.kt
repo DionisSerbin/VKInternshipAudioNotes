@@ -37,7 +37,7 @@ class PlayerWaveformView : View {
         spikes = Array(nbSpikes) { RectF() }
 
         paintRead = Paint()
-        paintRead.color = Color.rgb(244, 81, 30) // orange
+        paintRead.color = Color.rgb(29, 127, 255)
 
         val displayMetrics = resources.displayMetrics
         sw = displayMetrics.widthPixels

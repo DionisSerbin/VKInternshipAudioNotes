@@ -30,21 +30,12 @@ class RecorderWaveformView: View {
         init(attrs)
     }
 
-    constructor(
-        context: Context?,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes){
-        init(attrs)
-    }
 
     private fun init(attrs: AttributeSet?){
         amplitudes = ArrayList()
-        paintRead = Paint() //Paint.ANTI_ALIAS_FLAG
-        paintRead.color = Color.rgb(244, 81, 30) // orange
+        paintRead = Paint()
+        paintRead.color = Color.rgb(29, 127, 255)
 
-        // get screen width
         val displayMetrics = resources.displayMetrics
         sw = displayMetrics.widthPixels
 
